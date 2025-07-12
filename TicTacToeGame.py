@@ -7,7 +7,7 @@ class TicTacToeGame:
         self.size = size
         self.boardArray = [[CellValues.EMPTY for _ in range(size)] for _ in range(size)]
         self.moveCount = 0
-    
+
     def __str__(self):
         outputString = "\n"
         for i in range(self.size):

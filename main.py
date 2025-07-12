@@ -2,6 +2,7 @@ import os
 from TicTacToeGame import TicTacToeGame
 from Players.PersonPlayer import PersonPlayer
 from Players.ComputerPlayerRandom import ComputerPlayerRandom
+from Players.ComputerPlayerWinIfItCan import ComputerPlayerWinIfItCan
 from CellValues import CellValues
 
 def clear_terminal():
@@ -12,7 +13,8 @@ game = TicTacToeGame(3)
 print(game)
 
 # players = [PersonPlayer(CellValues.NOUGHT, game), ComputerPlayerPickNext(CellValues.CROSS, game)]
-players = [PersonPlayer(CellValues.NOUGHT, game), ComputerPlayerRandom(CellValues.CROSS, game)]
+# players = [PersonPlayer(CellValues.NOUGHT, game), ComputerPlayerRandom(CellValues.CROSS, game)]
+players = [PersonPlayer(CellValues.NOUGHT, game), ComputerPlayerWinIfItCan(CellValues.CROSS, game)]
 turnNumber = 0
 while not game.IsGameWon() and not game.IsBoardFull():
     players[turnNumber % len(players)].DoMove()
