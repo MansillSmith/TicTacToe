@@ -1,0 +1,2 @@
+class ComputerPlayerWinIfItCan(ComputerPlayerRandom): 
+    pass  
