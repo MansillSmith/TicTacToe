@@ -24,7 +24,7 @@ class TicTacToeGame:
         self.moveCount += 1
 
     def IsBoardFull(self):
-        return self.moveCount >= self.size**self.size
+        return self.moveCount >= self.size*self.size
 
     def IsGameWon(self):
         def CheckValidWinList(array):
