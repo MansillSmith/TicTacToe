@@ -6,8 +6,7 @@ from TicTacToeGame import TicTacToeGame
 import copy
 
 class ComputerPlayerWinIfItCan(ComputerPlayerRandom):     
-
-    def DoMove(self):
+    def DoMoveIfCanWin(self):
         # several options here
         # it could check if theres 2 in a row, and add a third.
         # or it could create a new game for all the available moves, and do the move that wins
@@ -20,7 +19,10 @@ class ComputerPlayerWinIfItCan(ComputerPlayerRandom):
                     g2.PlayerMove(self, move)
                     if g2.IsGameWon():
                         self.game.PlayerMove(self, move)
-                        return        
-                     
-        # if it got here - it couldn't win on the next turn, so just pick a random one 
-        super().DoMove()
+                        return True
+        return False
+
+    def DoMove(self):
+        if not self.DoMoveIfCanWin():              
+            # if it got here - it couldn't win on the next turn, so just pick a random one 
+            super().DoMove()
